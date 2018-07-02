@@ -43,6 +43,12 @@ open class ImageCarousel: UIView {
     weak var delegate: ImageCarouselDelegate?
     
     // MARK: - Style
+    public var slidesContentMode: UIViewContentMode = .scaleAspectFill {
+        didSet {
+            updateContentMode()
+        }
+    }
+    
     public var currentPageIndicatorTintColor: UIColor? {
         get {
             return pageControl.currentPageIndicatorTintColor
@@ -182,6 +188,12 @@ open class ImageCarousel: UIView {
         
         scrollView.contentOffset = CGPoint(x: frame.size.width * 2, y: 0)
     }
+    
+    fileprivate func updateContentMode() {
+        [beforeImage, currentImage, afterImage].forEach { image in
+            image?.contentMode = self.slidesContentMode
+        }
+    }
 }
 
 extension ImageCarousel {
@@ -208,7 +220,7 @@ extension ImageCarousel {
         afterImage = UIImageView()
         
         [beforeImage, currentImage, afterImage].forEach { image in
-            image?.contentMode = .scaleToFill
+            image?.contentMode = self.slidesContentMode
             image?.clipsToBounds = true
             image?.translatesAutoresizingMaskIntoConstraints = false
         }
