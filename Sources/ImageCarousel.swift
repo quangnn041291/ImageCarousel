@@ -12,6 +12,10 @@ public protocol ImageCarouselDelegate: class {
     func downloadImage(for imageView: UIImageView, fromUrl url: URL, andSet item: ImageCarouseltem)
 }
 
+public extension ImageCarouselDelegate {
+    func downloadImage(for imageView: UIImageView, fromUrl url: URL, andSet item: ImageCarouseltem) {}
+}
+
 open class ImageCarousel: UIView {
     public enum Direction: Int {
         case left = -1, none, right
