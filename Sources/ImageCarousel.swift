@@ -42,6 +42,25 @@ open class ImageCarousel: UIView {
     
     weak var delegate: ImageCarouselDelegate?
     
+    // MARK: - Style
+    public var currentPageIndicatorTintColor: UIColor? {
+        get {
+            return pageControl.currentPageIndicatorTintColor
+        }
+        set {
+            pageControl.currentPageIndicatorTintColor = newValue
+        }
+    }
+    
+    public var pageIndicatorTintColor: UIColor? {
+        get {
+            return pageControl.pageIndicatorTintColor
+        }
+        set {
+            pageControl.pageIndicatorTintColor = newValue
+        }
+    }
+    
     // MARK: - Private
     private var scrollView: UIScrollView!
     
@@ -64,7 +83,6 @@ open class ImageCarousel: UIView {
         
         updateScrollViewFrame()
         beforeImageLeadingConstraint.constant = scrollView.frame.width
-//        layoutIfNeeded()
     }
     
     fileprivate func updateScrollViewFrame() {
@@ -102,7 +120,7 @@ open class ImageCarousel: UIView {
         
         pageControl.numberOfPages = items.count
         pageControl.currentPage = currentIndex
-        layoutSubviews()
+        updateScrollViewFrame()
     }
     
     fileprivate func setImage(for index: Int, imageView: UIImageView) {
