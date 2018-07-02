@@ -3,7 +3,7 @@
 
 Image slider in Swift.
 
-![Demo](https://i.imgur.com/5e6h3Py.png)
+![Demo](https://i.imgur.com/gTmPgC9.gif)
 
 ## Installation
 ### Carthage:
