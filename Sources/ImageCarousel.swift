@@ -40,7 +40,7 @@ open class ImageCarousel: UIView {
     
     public var afterIndex = 0
     
-    weak var delegate: ImageCarouselDelegate?
+    public weak var delegate: ImageCarouselDelegate?
     
     // MARK: - Style
     public var slidesContentMode: UIViewContentMode = .scaleAspectFill {
