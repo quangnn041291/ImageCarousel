@@ -171,21 +171,19 @@ open class ImageCarousel: UIView {
         switch scrollDirection {
         case .left:
             afterImage.image = currentImage.image
-            currentImage.image =  items[currentIndex].image
-            
+            setImage(for: currentIndex, imageView: currentImage)
             if currentIndex - 1 < 0 {
-                beforeImage.image = items[items.count - 1].image
-            }else {
-                beforeImage.image = items[currentIndex - 1].image
+                setImage(for: items.count - 1, imageView: beforeImage)
+            } else {
+                setImage(for: currentIndex - 1, imageView: beforeImage)
             }
         case .right:
             beforeImage.image = currentImage.image
-            currentImage.image = items[currentIndex].image
-            
+            setImage(for: currentIndex, imageView: currentImage)
             if currentIndex + 1 > items.count - 1 {
-                afterImage.image = items[0].image
+                setImage(for: 0, imageView: afterImage)
             } else {
-                afterImage.image = items[currentIndex + 1].image
+                setImage(for: currentIndex + 1, imageView: afterImage)
             }
         case .none: break
         }
