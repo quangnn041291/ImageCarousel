@@ -43,7 +43,7 @@ open class ImageCarousel: UIView {
     public weak var delegate: ImageCarouselDelegate?
     
     // MARK: - Style
-    public var slidesContentMode: UIViewContentMode = .scaleAspectFill {
+    public var slidesContentMode: UIView.ContentMode = .scaleAspectFill {
         didSet {
             updateContentMode()
         }
