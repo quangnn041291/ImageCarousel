@@ -82,6 +82,10 @@ open class ImageCarousel: UIView {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        prepareScrollView()
+        prepareImageViews()
+        preparePageControl()
     }
     
     open override func layoutSubviews() {
